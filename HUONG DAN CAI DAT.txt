@@ -1,0 +1,6 @@
+﻿Bước 1: Import cơ sở dữ liệu vào SQLServer
+Bước 2: Mở file DBConnect.java bằng notpad cấu hình lại cho đúng với user và password mới của SQLServer.
+Bước 3: Add Driver sqljdbc vào Netbean
+
+
+====================================
