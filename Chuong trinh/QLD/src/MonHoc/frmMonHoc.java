@@ -52,6 +52,7 @@ public class frmMonHoc extends javax.swing.JPanel {
 
             IMonHocDAO monHocDAO = (IMonHocDAO) Class.forName("MonHoc.MonHocDAO").newInstance();
             list = new MonHocDAO().getAll();
+            dtm.setRowCount(0);// load lai data ve ban dau
             for (MonHoc mh : list) {
                 dtm.addRow(toObjectsData(mh));
             }

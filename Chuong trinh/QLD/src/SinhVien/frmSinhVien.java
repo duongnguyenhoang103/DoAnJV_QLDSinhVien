@@ -427,6 +427,7 @@ public class frmSinhVien extends javax.swing.JPanel {
         try {
             ISinhVienDAO sinhVienDAO = (ISinhVienDAO) Class.forName("SinhVien.SinhVienDAO").newInstance();
             list = new SinhVienDAO().getAll();
+            dtm.setRowCount(0);// load lai data ve ban dau
             for (int i=0;i< dtm.getRowCount();i++)
                 dtm.removeRow(i);
             for (SinhVien sv : list) {

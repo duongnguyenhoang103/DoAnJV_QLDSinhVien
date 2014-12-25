@@ -126,6 +126,7 @@ public class frmBangDiem extends javax.swing.JPanel {
         try {
             IBangDiemDAO bangDiemDAO = (IBangDiemDAO) Class.forName("BangDiem.BangDiemDAO").newInstance();
             listbdiem = bangDiemDAO.getAll();
+            dtm.setRowCount(0);// load lai data ve ban dau
             for (BangDiem bd : listbdiem) {
                 dtm.addRow(toObjectData(bd));
 

@@ -479,6 +479,7 @@ public class frmLopHoc extends javax.swing.JPanel {
             try {
                 ILopHocDAO lopHocDAO = (ILopHocDAO) Class.forName("LopHoc.LopHocDAO").newInstance();
                 allLop = new LopHocDAO().getAll();
+                dtm.setRowCount(0);// load lai data ve ban dau
                 for (LopHoc lh : allLop) {
                     dtm.addRow(toObjectsData(lh));
                 }

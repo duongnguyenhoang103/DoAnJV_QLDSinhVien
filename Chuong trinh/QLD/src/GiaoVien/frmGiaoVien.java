@@ -52,7 +52,7 @@ public class frmGiaoVien extends javax.swing.JPanel {
             dtm.addColumn("Email");
             dtm.addColumn("Địa Chỉ");
             dtm.addColumn("Số ĐT");
-            data();
+            loadData();
             // loaddata();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(frmGiaoVien.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,10 +63,11 @@ public class frmGiaoVien extends javax.swing.JPanel {
         }
     }
 
-    private void data() {
+    private void loadData() {
         try {
             IGiaoVienDAO giaoVienDAO = (IGiaoVienDAO) Class.forName("GiaoVien.GiaoVienDAO").newInstance();
             listgv = new GiaoVienDAO().getAll();
+            dtm.setRowCount(0);// load lai data ve ban dau
             for (GiaoVien gv : listgv) {
                 dtm.addRow(toObjectsData(gv));
             }
@@ -594,7 +595,7 @@ public class frmGiaoVien extends javax.swing.JPanel {
                 dtm.removeRow(0);
             }
             resetForm();
-            data();
+            loadData();
             jbAdd.setEnabled(true);
             jbUpdate.setEnabled(false);
             jbDelete.setEnabled(false);

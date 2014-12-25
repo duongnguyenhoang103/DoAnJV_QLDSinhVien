@@ -36,6 +36,7 @@ public class frmKhoa extends javax.swing.JPanel {
         try {
             IKhoaDAO khoaDAO = (IKhoaDAO) Class.forName("Khoa.KhoaDAO").newInstance();
             list = new KhoaDAO().getAll();
+            dtm.setRowCount(0);// load lai data ve ban dau
             for (Khoa khoa : list) {
                 dtm.addRow(toObjectsData(khoa));
             }
