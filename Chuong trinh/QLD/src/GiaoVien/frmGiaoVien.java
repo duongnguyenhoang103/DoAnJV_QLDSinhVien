@@ -605,6 +605,7 @@ public class frmGiaoVien extends javax.swing.JPanel {
 
     private void jbExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExitActionPerformed
         this.resetForm();
+        loadData();
     }//GEN-LAST:event_jbExitActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -640,9 +641,13 @@ public class frmGiaoVien extends javax.swing.JPanel {
         while (dtm.getRowCount() > 0) {
             dtm.removeRow(0);
         }
-        int selectedIndex = jcbgiangday.getSelectedIndex();
-        MonHoc getmh = listmh.get(selectedIndex);
-        ArrayList<GiaoVien> list = new GiaoVienDAO().findByIDMonHoc(getmh.getMamh());
+        // hien thi theo mon hoc
+//        int selectedIndex = jcbgiangday.getSelectedIndex();
+//        MonHoc getmh = listmh.get(selectedIndex);
+//        ArrayList<GiaoVien> list = new GiaoVienDAO().findByIDMonHoc(getmh.getMamh());
+        // hien thị theo ma gv
+         String magv = jtfMaGV.getText();
+        ArrayList<GiaoVien> list = new GiaoVienDAO().findByIDGiaoVien(magv);
         for (GiaoVien gv : list) {
             Vector vector = new Vector();
             vector.add(gv.getMagv());
@@ -660,7 +665,7 @@ public class frmGiaoVien extends javax.swing.JPanel {
             vector.add(gv.getSdt());
             dtm.addRow(vector);
         }
-        resetForm();
+       // resetForm();
 
     }
 }

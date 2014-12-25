@@ -16,5 +16,6 @@ public interface IGiaoVienDAO {
     public GiaoVien addNew(GiaoVien gv);
     public GiaoVien updateByID(GiaoVien gv);
      public ArrayList<GiaoVien> CheckID(String magv);
-    
+     // 
+     public ArrayList<GiaoVien> findByIDGiaoVien(String magv);
 }
