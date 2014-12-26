@@ -13,13 +13,12 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<parameter name="prmTrangThai" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select tblSinhVien.fldmasv, tblSinhVien.fldHoTen,tblLop.fldMaLop ,tblMonHoc.fldTenMH, tblDiem.fldLanThi, tblDiem.fldHeSo,
 tblDiem.fldDiem, tblDiem.fldTrangThai from tblSinhVien inner join tblLop on tblSinhVien.fldMaLop = tblLop.fldMaLop
 inner join tblDiem on tblSinhVien.fldmasv = tblDiem.fldmasv
 inner join tblMonHoc on tblDiem.fldMaMH = tblMonHoc.fldMaMH
-Where tblDiem.fldTrangThai= $P{prmTrangThai}]]>
+Where tblDiem.fldTrangThai= 'true']]>
 	</queryString>
 	<field name="fldmasv" class="java.lang.String"/>
 	<field name="fldHoTen" class="java.lang.String"/>
@@ -56,7 +55,7 @@ Where tblDiem.fldTrangThai= $P{prmTrangThai}]]>
 				<textField>
 					<reportElement positionType="Float" mode="Opaque" x="15" y="2" width="787" height="24" forecolor="#FF6600" backcolor="#FFFFFF"/>
 					<textElement>
-						<font fontName="Tahoma" size="18" isBold="true"/>
+						<font fontName="Tahoma" size="16" isBold="true"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{fldmasv}]]></textFieldExpression>
 				</textField>

@@ -11,6 +11,8 @@ import Khoa.frmKhoa;
 import LopHoc.frmLopHoc;
 import MonHoc.frmMonHoc;
 import Report.Report;
+import Report.Report1;
+import Report.Report2;
 import Search.Search;
 import SinhVien.frmSinhVien;
 
@@ -131,6 +133,11 @@ public class Main extends javax.swing.JFrame {
         jmiNhapKhoa = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jmBaoCao = new javax.swing.JMenu();
+        jmiNhapSV1 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
+        jmiNhapSV2 = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        jmiNhapSV3 = new javax.swing.JMenuItem();
         jmTimKiem = new javax.swing.JMenu();
         jmHoTro = new javax.swing.JMenu();
         jmHelp = new javax.swing.JMenu();
@@ -349,7 +356,7 @@ public class Main extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/banerr_1.jpg"))); // NOI18N
-        //jLabel1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/banner.png"))); // NOI18N
+       // jLabel1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/banner.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -600,6 +607,39 @@ public class Main extends javax.swing.JFrame {
                 jmBaoCaoMouseClicked(evt);
             }
         });
+
+        jmiNhapSV1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jmiNhapSV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/1343142216_add-notes.png"))); // NOI18N
+        jmiNhapSV1.setText("Điểm Sinh Viên");
+        jmiNhapSV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNhapSV1ActionPerformed(evt);
+            }
+        });
+        jmBaoCao.add(jmiNhapSV1);
+        jmBaoCao.add(jSeparator7);
+
+        jmiNhapSV2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jmiNhapSV2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/add-event-icon.png"))); // NOI18N
+        jmiNhapSV2.setText("Danh Sách Sinh Viên Trượt");
+        jmiNhapSV2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNhapSV2ActionPerformed(evt);
+            }
+        });
+        jmBaoCao.add(jmiNhapSV2);
+        jmBaoCao.add(jSeparator8);
+
+        jmiNhapSV3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jmiNhapSV3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/bill.png"))); // NOI18N
+        jmiNhapSV3.setText("Danh Sách Sinh Viên Đỗ");
+        jmiNhapSV3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNhapSV3ActionPerformed(evt);
+            }
+        });
+        jmBaoCao.add(jmiNhapSV3);
+
         jMenuBar2.add(jmBaoCao);
 
         jmTimKiem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Search-icon.png"))); // NOI18N
@@ -774,9 +814,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jmTimKiemMouseClicked
 
     private void jmBaoCaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmBaoCaoMouseClicked
-        Report baocao = new Report();
-        jtpContent.removeAll();
-        jtpContent.add("Báo Cáo", baocao);
+//        Report baocao = new Report();
+//        jtpContent.removeAll();
+//        jtpContent.add("Báo Cáo", baocao);
     }//GEN-LAST:event_jmBaoCaoMouseClicked
 
     private void jmHoTroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmHoTroActionPerformed
@@ -803,6 +843,24 @@ public class Main extends javax.swing.JFrame {
         jtpContent.removeAll();
         jtpContent.add("Tính Điểm",tinhDiem);
     }//GEN-LAST:event_jbtinhdiemActionPerformed
+
+    private void jmiNhapSV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNhapSV1ActionPerformed
+        Report baocao = new Report();
+        jtpContent.removeAll();
+        jtpContent.add("Báo Cáo", baocao);
+    }//GEN-LAST:event_jmiNhapSV1ActionPerformed
+
+    private void jmiNhapSV2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNhapSV2ActionPerformed
+         Report1 baocao1 = new Report1();
+        jtpContent.removeAll();
+        jtpContent.add("Báo Cáo", baocao1);
+    }//GEN-LAST:event_jmiNhapSV2ActionPerformed
+
+    private void jmiNhapSV3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNhapSV3ActionPerformed
+       Report2 baocao2 = new Report2();
+        jtpContent.removeAll();
+        jtpContent.add("Báo Cáo", baocao2);
+    }//GEN-LAST:event_jmiNhapSV3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -873,6 +931,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JButton jbClass;
     private javax.swing.JButton jbInputDiem;
     private javax.swing.JButton jbInputStudent;
@@ -894,6 +954,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiNhapKhoa;
     private javax.swing.JMenuItem jmiNhapLop;
     private javax.swing.JMenuItem jmiNhapSV;
+    private javax.swing.JMenuItem jmiNhapSV1;
+    private javax.swing.JMenuItem jmiNhapSV2;
+    private javax.swing.JMenuItem jmiNhapSV3;
     private javax.swing.JTextField jtfCurrent;
     private javax.swing.JTabbedPane jtpContent;
     // End of variables declaration//GEN-END:variables
