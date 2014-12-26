@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bc2" language="groovy" pageWidth="842" pageHeight="842" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select tblSinhVien.fldmasv, tblSinhVien.fldHoTen,tblLop.fldMaLop ,tblMonHoc.fldTenMH, tblDiem.fldLanThi, tblDiem.fldHeSo,
+tblDiem.fldDiem, tblDiem.fldTrangThai from tblSinhVien inner join tblLop on tblSinhVien.fldMaLop = tblLop.fldMaLop
+inner join tblDiem on tblSinhVien.fldmasv = tblDiem.fldmasv
+inner join tblMonHoc on tblDiem.fldMaMH = tblMonHoc.fldMaMH
+Where tblDiem.fldTrangThai= 'true']]>
+	</queryString>
+	<field name="fldmasv" class="java.lang.String"/>
+	<field name="fldHoTen" class="java.lang.String"/>
+	<field name="fldMaLop" class="java.lang.String"/>
+	<field name="fldTenMH" class="java.lang.String"/>
+	<field name="fldLanThi" class="java.lang.Short"/>
+	<field name="fldHeSo" class="java.lang.Short"/>
+	<field name="fldDiem" class="java.lang.Double"/>
+	<field name="fldTrangThai" class="java.lang.Boolean"/>
+	<group name="fldMaLop">
+		<groupExpression><![CDATA[$F{fldMaLop}]]></groupExpression>
+		<groupHeader>
+			<band height="34">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="802" height="25" forecolor="#B89F7D" backcolor="#009933"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" mode="Opaque" x="2" y="0" width="800" height="25" forecolor="#FFFFFF" backcolor="#009933"/>
+						<textElement>
+							<font fontName="Tahoma" isBold="true"/>
+						</textElement>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{fldMaLop}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="5"/>
+		</groupFooter>
+	</group>
+	<group name="fldmasv">
+		<groupExpression><![CDATA[$F{fldmasv}]]></groupExpression>
+		<groupHeader>
+			<band height="26">
+				<textField>
+					<reportElement positionType="Float" mode="Opaque" x="15" y="2" width="787" height="24" forecolor="#FF6600" backcolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Tahoma" size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{fldmasv}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="99" splitType="Stretch">
+			<image>
+				<reportElement mode="Opaque" x="722" y="0" width="80" height="98" backcolor="#CCCCFF"/>
+				<imageExpression class="java.lang.String"><![CDATA["icon.png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="66" width="720" height="32" forecolor="#000000" backcolor="#CC0000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="720" height="66" backcolor="#0000CC"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font fontName="Tahoma" size="44" isBold="true"/>
+					</textElement>
+					<text><![CDATA[BÁO CÁO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="370" y="37" width="327" height="29" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font fontName="Tahoma" size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Danh Sách Sinh Viên Đỗ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="204" y="12" width="155" height="18" forecolor="#FF0000"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên Môn Học]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="372" y="12" width="102" height="18" forecolor="#FF0000"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lần Thi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="15" y="12" width="187" height="18" forecolor="#FF0000"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Họ Và Tên]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="504" y="12" width="105" height="18" forecolor="#FF0000"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hệ Số]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="634" y="12" width="119" height="18" forecolor="#FF0000"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Điểm]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="22"/>
+				<textField>
+					<reportElement x="61" y="0" width="182" height="20"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{fldHoTen}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="243" y="2" width="143" height="20"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{fldTenMH}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="398" y="0" width="129" height="20"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Short"><![CDATA[$F{fldLanThi}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="684" y="0" width="91" height="20"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$F{fldDiem}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="553" y="2" width="110" height="20"/>
+					<textElement>
+						<font fontName="Times New Roman" size="14" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Short"><![CDATA[$F{fldHeSo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="802" height="24" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="4" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="4" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
